@@ -14,7 +14,7 @@
 				method : 'GET',
 				url : 'javaAngularJS'
 			}).success(function(data, status, headers, config) {
-				$scope.person = data;
+				$scope.jug = data;
 			}).error(function(data, status, headers, config) {
 				// called asynchronously if an error occurs
 				// or server returns response with an error status.
@@ -28,8 +28,8 @@
 	<div data-ng-app="myApp">
 		<div data-ng-controller="MyController">
 			<button data-ng-click="getDataFromServer()">Fetch data from server</button>
-			<p>First Name : {{person.firstName}}</p>
-			<p>Last Name : {{person.lastName}}</p>
+			<p>First Name : {{jug.idJugador}}</p>
+			<p>Last Name : {{jug.nombre}}</p>
 		</div>
 	</div>
 </body>
