@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import model.Jugador;
-import model.PersonData;
+
 
 public class AngularJsServlet extends HttpServlet {
         private static final long serialVersionUID = 1L;
@@ -28,9 +27,11 @@ public class AngularJsServlet extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException {
         		
         	String JSON = getJsonDataViaHttp("http://chess-rankings.com/t/server/api.php/jugadores/1002");
+        	System.out.println(JSON);
         	Gson conversor = new Gson();
-        	Jugador jug =conversor.fromJson(JSON, Jugador.class);
         	
+        	Jugador jug =conversor.fromJson(JSON, Jugador.class);
+        	System.out.println(jug);
 
                 String json = new Gson().toJson(jug);
                 response.setContentType("application/json");
