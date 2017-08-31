@@ -26,16 +26,10 @@ public class AngularJsServlet extends HttpServlet {
         protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         		
-        	String JSON = getJsonDataViaHttp("http://chess-rankings.com/t/server/api.php/jugadores/1002");
+        	String JSON = getJsonDataViaHttp("http://chess-rankings.com/t/server/api.php/jugadores/2305");
         	System.out.println(JSON);
-        	Gson conversor = new Gson();
-        	
-        	Jugador jug =conversor.fromJson(JSON, Jugador.class);
-        	System.out.println(jug);
-
-                String json = new Gson().toJson(jug);
                 response.setContentType("application/json");
-                response.getWriter().write(json);
+                response.getWriter().write("["+JSON+"]");
         }
         public String getJsonDataViaHttp(String address){
         	 URL url;
